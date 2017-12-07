@@ -1,0 +1,27 @@
+{
+  "name": "siarhei-balonikau.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel ./js/script.js --out-file ./js/babel-script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Siarhei-Balonikau/siarhei-balonikau.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Siarhei-Balonikau/siarhei-balonikau.github.io/issues"
+  },
+  "homepage": "https://github.com/Siarhei-Balonikau/siarhei-balonikau.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}

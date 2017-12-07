@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "ie": 10
+      }
+    }]
+  ],
+  "plugins": ["./babel-plugin/babel-plugin-remove-console-log.js"]
+}
