@@ -1,0 +1,40 @@
+.filter { 
+  padding-bottom: 40px;
+  
+  &__sources + .filter__button {
+    margin-left: 20px;
+  }
+
+  &__sources {
+    display: inline-block;
+  }
+
+  &__select {
+    border: 1px solid #424242;
+    padding: 9px 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  &__select:hover {
+    border: 1px solid #e1e1e1;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter {
+    &__sources + .button {
+      margin-left: 0px;
+    }
+    
+    &__select {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    &__sources {
+      display: block;
+    }
+  }
+}

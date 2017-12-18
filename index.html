@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>News</title>
-    <script src="./js/polyfill.min.js" defer></script>
-    <script src="./js/fetch.js" defer></script>
-    <script src="./js/babel-script.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
   </head>
   <body>
     <div class="container">
@@ -17,15 +15,15 @@
         
       <div class="filter">
         <div class="filter__sources"></div>
-        <button type="button" class="filter__button"><span class="filter__button-text">FIND NEWS</span></button>
+        <button type="button" class="button button_filter"><span class="button__text">FIND NEWS</span></button>
       </div>
       
       <div class="news-list">
         <div class="news-list__content"></div>
         
         <div class="news-list__more">
-          <button type="button" class="news-list__more-button">
-            <span class="news-list__more-button-text">READMORE</span>
+          <button type="button" class="button button_hidden button_news-list">
+            <span class="button__text">READMORE</span>
           </button>
         </div>
         

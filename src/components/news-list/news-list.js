@@ -1,58 +1,11 @@
-class App {
-  constructor() {
-    this._pass = `c6313e2417184bc09025eae3a4e8c909`;
-    this._news = new News();
-    this._sources = new Source();
-    
-    const filterButtonSelector = `.filter__button`,
-    moreButtonSelector = `.news-list__more-button`,
-    filterSelectSelector = `.filter__select`;
-    
-    // Fetch news resources.
-    this._sources.fetchSources(this._pass);
-    
-    // Fetch by click to filter button.
-    document.querySelector(filterButtonSelector).addEventListener("click", () => { 
-      const currentSource = document.querySelector(filterSelectSelector).value;
-      this._news.fetchNews(currentSource, this._pass, true);
-    });
-    
-    // Fetch more by click to more button.
-    document.querySelector(moreButtonSelector).addEventListener("click", () => { 
-      const currentSource = document.querySelector(filterSelectSelector).value;
-      this._news.fetchNews(currentSource, this._pass);
-    });
-  }
-}
+import 'whatwg-fetch';
+import "./news-list.scss";
 
-class Source {
-  fetchSources (pass) {
-    fetch(`https://newsapi.org/v2/sources?apiKey=${pass}`)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === `ok`) {
-        this.print(data.sources);
-      }
-    }).catch((error) => {
-      console.log(`Source error: + ${error.message}`);
-    });
-  }
-  
-  print(sources) {
-    let listItemsHtml = ``;
-    const selectClass = `filter__select`,
-    sourcesSelector = `.filter__sources`;
-    
-    sources.forEach((source) => {
-      listItemsHtml += `<option value="${source.id}">${source.name}</option>`;
-    });
-    listItemsHtml = `<select class="${selectClass}">${listItemsHtml}</select>`;
-    
-    document.querySelector(sourcesSelector).innerHTML = listItemsHtml;
-  }
-}
+import "./../single-news/single-news.js";
+import "./../button/button.js";
+import "./../loader/loader.js";
 
-class News {
+export class News {
   constructor() {
     this._page = 1;
   }
@@ -87,8 +40,8 @@ class News {
   print(news, fromStart) {
     let listItemsHtml = ``;
     const newsListSelector = `.news-list__content`,
-    moreButtonSelector = `.news-list__more-button`,
-    moreButtonActiveClass = `news-list__more-button_active`;
+    moreButtonSelector = `.button_news-list`,
+    moreButtonHiddenClass = `button_hidden`;
     
     // If was click more button, then add new news to previous.
     if (fromStart !== true) {
@@ -102,7 +55,7 @@ class News {
     });
     
     // Turn on 'more button'.
-    document.querySelector(moreButtonSelector).classList.add(moreButtonActiveClass);
+    document.querySelector(moreButtonSelector).classList.remove(moreButtonHiddenClass);
     document.querySelector(newsListSelector).innerHTML = listItemsHtml;
   }
   
@@ -142,5 +95,3 @@ class News {
     </a>`;
   }
 }
-
-let app = new App();
