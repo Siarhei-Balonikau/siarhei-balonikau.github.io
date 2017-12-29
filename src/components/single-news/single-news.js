@@ -1,1 +1,1 @@
-import "./single-news.scss";
+import './single-news.scss';

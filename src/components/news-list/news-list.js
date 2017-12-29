@@ -1,52 +1,42 @@
 import 'whatwg-fetch';
-import "./news-list.scss";
+import './news-list.scss';
 
-import "./../single-news/single-news.js";
-import "./../button/button.js";
-import "./../loader/loader.js";
+import './../single-news/single-news.js';
+import './../button/button.js';
+import './../loader/loader.js';
+import Component from './../component/component.js';
 
-export class News {
-  constructor() {
-    this._page = 1;
-  }
-  
+export default class News extends Component {
   fetchNews (source, pass, fromStart) {
-    const loaderSelector = `.loader`,
-    loaderActiveClass = `loader__active`;
-     
     // If loading from new source, then set page to 1.
     if (fromStart) {
-      this._page = 1;
+      this._store.dispatch({type: 'FIRST_PAGE'});
     }
      
     // Turn on loader.
-    document.querySelector(loaderSelector).classList.add(loaderActiveClass);
+    this._store.dispatch({type: 'SET_VISIBILITY_LOADER', state: 'VISIBLE'});
     
-    fetch(`https://newsapi.org/v2/everything?sources=${source}&apiKey=${pass}&page=${this._page}`)
+    fetch(`https://newsapi.org/v2/everything?sources=${source}&apiKey=${pass}&page=${this._store.getState().currentPage}`)
     .then((response) => response.json())
     .then((data) => {
-      if (data.status === `ok`) {
-        this._page += 1;
-        this.print(data.articles, fromStart);
-        
-        // Turn off loader.
-        document.querySelector(loaderSelector).classList.remove(loaderActiveClass);
+      if (data.status === 'ok') {
+        this._store.dispatch({type: 'NEXT_PAGE'});
+        if (fromStart) {
+          this._store.dispatch({type: 'CLEAR_NEWS'});
+        }
+        this._store.dispatch({type: 'ADD_NEWS', news: data.articles});
+        this._store.dispatch({type: 'SET_VISIBILITY_BUTTON', state: 'VISIBLE'});
+        this._store.dispatch({type: 'SET_VISIBILITY_LOADER', state: 'HIDDEN'});
       }
     }).catch((error) => {
       console.log(`News error: + ${error.message}`);
     });
   }
   
-  print(news, fromStart) {
-    let listItemsHtml = ``;
-    const newsListSelector = `.news-list__content`,
-    moreButtonSelector = `.button_news-list`,
-    moreButtonHiddenClass = `button_hidden`;
-    
-    // If was click more button, then add new news to previous.
-    if (fromStart !== true) {
-      listItemsHtml = document.querySelector(newsListSelector).innerHTML;
-    } 
+  render(fromStart) {
+    let listItemsHtml = '';
+    const news = this._store.getState().news;
+    const newsListSelector = '.news-list__content';
     
     news.forEach((singleNews) => {
       let date = this.splitDate(singleNews.publishedAt);
@@ -54,8 +44,6 @@ export class News {
       listItemsHtml += this.buildSingleNews(singleNews, date);
     });
     
-    // Turn on 'more button'.
-    document.querySelector(moreButtonSelector).classList.remove(moreButtonHiddenClass);
     document.querySelector(newsListSelector).innerHTML = listItemsHtml;
   }
   
@@ -66,9 +54,9 @@ export class News {
     date,
     time;
     
-    [date, time] = rawDate.split(`T`);
-    [year, month, day] = date.split(`-`);
-    time = time.slice(`0`, `-1`);
+    [date, time] = rawDate.split('T');
+    [year, month, day] = date.split('-');
+    time = time.slice('0', '-1');
     
     return {
       year: year,
@@ -80,12 +68,12 @@ export class News {
   }
   
   buildSingleNews(singleNews, date) {
-    const singleNewsClass = `single-news`,
-    titleClass = `single-news__title`,
-    dateClass = `single-news__date`,
-    descriptionClass = `single-news__description`,
-    sourceClass = `single-news__source`,
-    authorClass = `single-news__author`;
+    const singleNewsClass = 'single-news',
+    titleClass = 'single-news__title',
+    dateClass = 'single-news__date',
+    descriptionClass = 'single-news__description',
+    sourceClass = 'single-news__source',
+    authorClass = 'single-news__author';
     
     return `<a href="${singleNews.url}" class="${singleNewsClass}">
       <div class="${titleClass}">${singleNews.title}</div>
