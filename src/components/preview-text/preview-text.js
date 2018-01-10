@@ -1,1 +1,1 @@
-import "./preview-text.scss";
+import './preview-text.scss';

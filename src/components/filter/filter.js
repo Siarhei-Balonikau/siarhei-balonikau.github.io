@@ -1,31 +1,46 @@
 import 'whatwg-fetch';
-import "./filter.scss";
+import './filter.scss';
 
-import "./../button/button.js";
+import './../button/button.js';
 
 export default class Source {
+  constructor(store) {
+    this._store = store;
+    this.fetchSources = this.fetchSources.bind(this);
+    this.render = this.render.bind(this);
+    
+    const selectSelector = '.filter__select';
+    
+    this.onChange(selectSelector);
+  }
+  
   fetchSources (pass) {
     fetch(`https://newsapi.org/v2/sources?apiKey=${pass}`)
     .then((response) => response.json())
     .then((data) => {
-      if (data.status === `ok`) {
-        this.print(data.sources);
+      if (data.status === 'ok') {
+        this._store.dispatch({type: 'ADD_SOURCES', sources: data.sources});
       }
     }).catch((error) => {
       console.log(`Source error: + ${error.message}`);
     });
   }
   
-  print(sources) {
-    let listItemsHtml = ``;
-    const selectClass = `filter__select`,
-    sourcesSelector = `.filter__sources`;
+  render() {
+    let listItemsHtml = '';
+    const sources = this._store.getState().sources,
+    sourcesSelector = '.filter__select';
     
     sources.forEach((source) => {
-      listItemsHtml += `<option value="${source.id}">${source.name}</option>`;
+      listItemsHtml += `<option ${source.id===this._store.getState().currentSource ? 'selected' : false} value="${source.id}">${source.name}</option>`;
     });
-    listItemsHtml = `<select class="${selectClass}">${listItemsHtml}</select>`;
     
     document.querySelector(sourcesSelector).innerHTML = listItemsHtml;
+  }
+  
+  onChange(selector) {
+    document.querySelector(selector).addEventListener('change', (e) => { 
+      this._store.dispatch({type: 'SET_CURRENT_SOURCE', source: e.currentTarget.value});
+    });
   }
 }
