@@ -1,0 +1,17 @@
+html
+  head
+    title= title
+  body
+    | Registration form
+    br
+    br
+    form(action="/user/reg" method="post")
+      | Login
+      br
+      input(type="text" name="name")
+      br
+      | Password
+      br
+      input(type="password" name="pass")
+      br
+      input(type="submit" value="send")
