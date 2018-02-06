@@ -4,7 +4,8 @@ const Blog = require('./../models/blogModel.js');
 exports.getAllBlogs = function(req, res, next) {
   Blog.find({}, '', function(err, blogs) {
     if (err) { 
-      return next(err); 
+      res.status(500); 
+      res.render('error', { title: 'Error', message: 'Can not get all blogs' });
     }
     
     res.render('blogs', { title: 'All blogs', message: 'All blogs', blogs: blogs });
@@ -21,7 +22,8 @@ exports.addBlog = function(req, res, next) {
   
   Blog.create(data, function(err, user) {
     if (err) { 
-      return next(err); 
+      res.status(500); 
+      res.render('error', { title: 'Error', message: 'Can not create new blog' });
     }
     
     res.render('index', { title: 'Blog added', message: 'Blog successfully added!' });
@@ -31,7 +33,8 @@ exports.addBlog = function(req, res, next) {
 exports.getBlog = function(req, res, next) {
   Blog.find({_id: req.params.id}, '', function(err, blog) {
     if (err) { 
-      return next(err); 
+      res.status(500); 
+      res.render('error', { title: 'Error', message: 'Can not get blog by ID' });
     }
     
     res.render('blog', { title: 'Single blog', message: 'Single blog', blog: blog });
@@ -41,7 +44,8 @@ exports.getBlog = function(req, res, next) {
 exports.changeBlog = function(req, res, next) {
   Blog.update({_id: req.params.id}, req.body, function(err, blog) {
     if (err) { 
-      return next(err); 
+      res.status(500); 
+      res.render('error', { title: 'Error', message: 'Can not change blog' });
     }
     
     res.render('index', { title: 'Update blog', message: 'Update blog' });
@@ -51,7 +55,8 @@ exports.changeBlog = function(req, res, next) {
 exports.deleteBlog = function(req, res, next) {
   Blog.remove({_id: req.params.id}, function(err, blog) {
     if (err) { 
-      return next(err); 
+      res.status(500); 
+      res.render('error', { title: 'Error', message: 'Can not delete blog' });
     }
     
     res.render('index', { title: 'Delete blog', message: 'Delete blog' });

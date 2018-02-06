@@ -10,8 +10,7 @@ passport.use(new LocalStrategy({
     userController.getUserByName(username, function(err, user) {
       if (err) { return callback(err); }
       if (!user) { return callback(null, false); }
-      if (user.pass != password) { return callback(null, false); }
-      return callback(null, user);
+      user.comparePassword(password, callback);
     });
   }
 ));
