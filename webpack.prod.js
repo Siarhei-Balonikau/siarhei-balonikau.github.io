@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -31,6 +32,11 @@ module.exports = merge(common, {
     new ExtractTextPlugin('./style.css'),
     new UglifyJsPlugin({
       sourceMap: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
   ],
 });

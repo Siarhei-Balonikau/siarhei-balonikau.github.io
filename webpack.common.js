@@ -4,13 +4,13 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-		index: ["babel-polyfill", "./src/components/app/app.js"]
+		index: ["babel-polyfill", 'react-hot-loader/patch', "./src/index.js"]
 	}, 
   
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/'
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/'
   },
   
   module: {
@@ -31,6 +31,7 @@ module.exports = {
   ],
   
   devServer: {
-    hot: true
+    hot: true,
+    historyApiFallback: true
   }
 };

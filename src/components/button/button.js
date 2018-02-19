@@ -1,22 +1,20 @@
-import './button.scss';
-import Component from './../component/component.js';
+import React from 'react';
+import PropTypes from 'prop-types';
+import './styles.scss';
 
-export default class Button extends Component {
-  render() {
-    const state = this._store.getState(),
-    moreButtonSelector = '.button_news-list',
-    moreButtonHiddenClass = 'button_hidden';
-  
-    switch (state.readmoreButton) {
-      case 'VISIBLE':
-        document.querySelector(moreButtonSelector).classList.remove(moreButtonHiddenClass);
-        break;
-      case 'HIDDEN':
-        document.querySelector(moreButtonSelector).classList.add(moreButtonHiddenClass);
-        break;
-      default:
-        document.querySelector(moreButtonSelector).classList.add(moreButtonHiddenClass);
-        break;
-    }
-  }
-}
+
+const Button = props => {
+  return (
+    <button className="button">
+      <span className="button__inner">
+        {props.name}
+      </span>
+    </button>
+  );
+};
+
+Button.propTypes = {
+  name: PropTypes.string
+};
+
+export default Button;

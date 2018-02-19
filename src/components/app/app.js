@@ -1,82 +1,36 @@
-import './app.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+import BlogList from './../../containers/BlogList/BlogList.js';
+import CurrentSingleBlog from './../../containers/CurrentSingleBlog/CurrentSingleBlog.js';
+import AddBlog from './../../containers/AddBlog/AddBlog.js';
+import { Route, Link, Switch } from "react-router-dom";
+import { connect } from 'react-redux';
+import { fetchBlogs } from './../../actions/blogs.js';
+import './styles.scss';
+import { withRouter } from 'react-router';
 
-import {createStore, combineReducers} from './../../js/redux.js';
-import {readmoreButton, loaderStatus, news, currentPage, sources, currentSource} from './../../js/reducers.js';
-import './../container/container.js';
-import './../copyright/copyright.js';
-import Source from './../filter/filter.js';
-import './../preview-text/preview-text.js';
-import Button from './../button/button.js';
-import Loader from './../loader/loader.js';
-import News from './../news-list/news-list.js';
-import {lastVisit} from './../../js/decorators.js';
 
-const appReducer = combineReducers({
-  readmoreButton,
-  loaderStatus,
-  news,
-  currentPage,
-  sources,
-  currentSource
-});
-
-const rootReducer = (state, action) => {
-  if (action.type === 'CLEAR_NEWS') {
-    state.news = undefined
-  }
-
-  return appReducer(state, action)
-}
-
-const store = createStore(rootReducer);
-
-let instance = null;
-
-@lastVisit
-class App {
-  constructor(store) {
-    if(!instance){
-      instance = this;
-    }
-    
-    this._pass = 'c6313e2417184bc09025eae3a4e8c909';
-    this._store = store;
-    
-    const filterButtonSelector = '.button_filter',
-    moreButtonSelector = '.button_news-list';
-    
-    const button = new Button(this._store);
-    this._store.subscribe(button.render);
-    button.render();
-    
-    const loader = new Loader(this._store);
-    this._store.subscribe(loader.render);
-    button.render();
-    
-    const source = new Source(this._store);
-    this._store.subscribe(source.render);
-    source.fetchSources(this._pass);
-    
-    this.setFetchNews(filterButtonSelector, true);
-    this.setFetchNews(moreButtonSelector, false);
-    
-    return instance;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
   }
   
-
-  setFetchNews(selector, fromStart) {
-    document.querySelector(selector).addEventListener('click', () => { 
-      require.ensure([], () => {
-        const newsList = require('./../news-list/news-list.js');
-        const news = new newsList.default(this._store);
-        this._store.subscribe(news.render);
-        
-        news.fetchNews(this._store.getState().currentSource, this._pass, fromStart);
-      });
-    });
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchBlogs());
+  }
+  
+  render() {
+    return (
+      <div className="app">
+        <Switch>
+          <Route exact path="/" component={BlogList} />
+          <Route path="/blog/:id" component={CurrentSingleBlog} />
+          <Route path="/add-blog/" component={AddBlog} />
+        </Switch>
+      </div>
+    );
   }
 }
 
-let app = new App(store);
-
-export {store};
+export default withRouter(connect()(App));

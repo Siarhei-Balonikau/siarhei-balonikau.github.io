@@ -3,43 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>News</title>
-    <script src="./dist/index.js" defer></script>
-    <link rel="stylesheet" href="./dist/style.css">
+    <title>Main page</title>
+    <script src="/index.js" defer></script>
   </head>
+  
   <body>
-    <div class="container">
-      <div class="preview-text">
-        SELECT NEWSFEED:
-      </div>
-        
-      <div class="filter">
-        <div class="filter__sources">
-          <select class="filter__select">
-          </select>
-        </div>
-        <button type="button" class="button button_filter"><span class="button__text">FIND NEWS</span></button>
-      </div>
-      
-      <div class="news-list">
-        <div class="news-list__content"></div>
-        
-        <div class="news-list__more">
-          <button type="button" class="button button_news-list">
-            <span class="button__text">READMORE</span>
-          </button>
-        </div>
-        
-        <div class="loader"></div>
-      </div>
-      
-      <div>
-        Your last visit: <span class="last-visit"></span>
-      </div>
-      
-      <div class="copyright">
-        <a href="https://newsapi.org/">News API</a>
-      </div>
-    </div>
+    <div id="root"></div>
   </body>
 </html>
