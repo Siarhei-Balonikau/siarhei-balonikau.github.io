@@ -17,20 +17,13 @@ const blogs = (
       return Object.assign({}, state,
         {
           isFetching: false,
-          items: state.items.concat(action.data.blogs)
+          items: action.data
         }
       );
     case 'SET_FILTER':
       return Object.assign({}, state,
         {
           filter: action.author
-        }
-      );
-    case 'ADD_BLOG':
-    console.log(action.blog);
-      return Object.assign({}, state,
-        {
-          items: state.items.concat(action.blog)
         }
       );
     default:

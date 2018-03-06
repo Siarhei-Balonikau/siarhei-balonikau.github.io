@@ -5,10 +5,10 @@ import { Router, Route, Link } from "react-router-dom";
 
 
 const Blog = (props) => {
-  const {id, title, date, text, author} = props.blog;
+  const {_id, title, date, text, author} = props.blog;
   
   return (
-    <Link className="blog" to={`/blog/${id}`}>
+    <Link className="blog" to={`/blog/${_id}`}>
       <div className="blog__title">
         {title}
       </div>

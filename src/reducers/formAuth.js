@@ -1,9 +1,7 @@
-const blogs = (
+const formAuth = (
   state = {
-    title: '',
-    text: '',
-    date: '',
-    author: ''
+    login: '',
+    pass: ''
   }, 
   action
 ) => {
@@ -16,14 +14,12 @@ const blogs = (
       );
     case 'CLEAR_FORM':
       return {
-        title: '',
-        text: '',
-        date: '',
-        author: ''
+        login: '',
+        pass: ''
       };
     default:
       return state;
   }
 }
 
-export default blogs;
+export default formAuth;

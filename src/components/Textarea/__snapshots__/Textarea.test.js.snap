@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<textarea
+  className="textarea"
+  onChange={[Function]}
+/>
+`;

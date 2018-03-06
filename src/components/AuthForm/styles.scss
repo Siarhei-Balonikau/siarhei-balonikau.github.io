@@ -1,0 +1,14 @@
+.auth-form {
+  &__field {
+    & + .auth-form {
+      &__field {
+        padding-top: 20px;
+      }
+    }
+  }
+  
+  &__button {
+    text-align: center;
+    padding-top: 30px;
+  }
+}

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import blogs from './blogs';
-import form from './form';
+import formAddBlog from './formAddBlog';
+import formAuth from './formAuth';
 
 const reducers = combineReducers({
   blogs,
-  form
+  formAddBlog,
+  formAuth
 })
 
 export default reducers

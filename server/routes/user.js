@@ -7,7 +7,7 @@ router.get('/reg', userControllers.showRegForm);
 router.post('/reg', userControllers.addUser);
 
 router.get('/auth', userControllers.showAuthForm);
-router.post('/auth', passport.authenticate('local', { failureRedirect: '/user/auth', successRedirect: '/blog' }));
+router.post('/auth', userControllers.auth);
 
 router.get('/logout', userControllers.logout);
 

@@ -1,15 +1,16 @@
 import express from 'express';
-/*import db from './db.js';
+import db from './db.js';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
-import passport from './auth.js';
+import cors from 'cors';
+import passport from './auth.js'; 
 
 import indexRouter from './routes/index.js';
+import userRouter from './routes/user.js';
 import blogRouter from './routes/blog.js';
-import userRouter from './routes/user.js';*/
 
-import App from './../src/components/App/App.js';
+import App from './../src/containers/App/App.js';
 import React from 'react';
 import ReactDOMServer from "react-dom/server";
 import { Provider } from "react-redux";
@@ -19,17 +20,17 @@ import { StaticRouter } from 'react-router-dom';
 const app = express();
 
 app.set('view engine', 'pug');
+app.use(cors());
 app.use(express.static('public'));
-/*app.use(cookieParser());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieSession({ secret: 'test key' }));
 app.use(passport.initialize());
-app.use(passport.session());*/
+app.use(passport.session());
 
-/*app.use('/user', userRouter);
 app.use('/blog', blogRouter);
-app.use('/', indexRouter);*/
+app.use('/user', userRouter);
 
 function renderFullPage(html, preloadedState) {
   return `
@@ -80,4 +81,4 @@ app.use(function(err, req, res, next) {
   res.render('error', { title: 'Error', message: err });
 });
 
-app.listen(3000, () => console.log('App listening on port 3000!'));
+app.listen(3001, () => console.log('App listening on port 3001!'));

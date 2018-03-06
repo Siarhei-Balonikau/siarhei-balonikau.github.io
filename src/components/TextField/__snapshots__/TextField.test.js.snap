@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<input
+  className="text-field"
+  onChange={[Function]}
+  type="text"
+/>
+`;

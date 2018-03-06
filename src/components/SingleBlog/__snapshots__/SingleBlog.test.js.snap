@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<div
+  className="single-blog"
+>
+  <Link
+    className="single-blog__link"
+    replace={false}
+    to="/"
+  >
+    Show all blogs
+  </Link>
+  <div
+    className="single-blog__title"
+  >
+    test
+  </div>
+  <div
+    className="single-blog__text"
+  >
+    test
+  </div>
+  <div
+    className="single-blog__author"
+  >
+    test
+  </div>
+</div>
+`;

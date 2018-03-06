@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BlogForm from './../../components/BlogForm/BlogForm';
 import { addBlog } from './../../actions/blogs.js';
-import { changeField, clearForm } from './../../actions/form.js';
+import { changeField, clearForm } from './../../actions/formAddBlog.js';
 import { withRouter } from 'react-router';
 
 
@@ -14,13 +14,8 @@ const addNewBlog = (dispatch, addBlog, form, clearForm, blogs) => {
   return (e) => {
     e.preventDefault();
     
-    const now = new Date();
-    const lastBlog = blogs.reduce((accumulator, currentBlog) => {
-      return accumulator.id < currentBlog.id ? currentBlog : accumulator
-    });
     const blog = Object.assign({}, form, {
-      id: lastBlog.id + 1,
-      date: now.getDate() + '.' + now.getMonth() + '.' + now.getFullYear()
+      date: new Date()
     });
 
     dispatch(addBlog(blog));
@@ -44,7 +39,7 @@ const AddBlog = (props) => {
 
 const mapStateToProps = state => {
   return {
-    form: state.form,
+    form: state.formAddBlog,
     blogs: state.blogs.items
   }
 }

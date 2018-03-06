@@ -8,7 +8,7 @@ const getBlog = (blogs, id) => {
 }
 
 const CurrentSingleBlog = (props) => {
-  const blog = getBlog(props.blogs, props.match.params.id);
+  const blog = getBlog(props.blogs, props.match.params._id);
 
   return (
     <div>
@@ -20,7 +20,6 @@ const CurrentSingleBlog = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     blogs: state.blogs.items
   }

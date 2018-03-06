@@ -3,6 +3,8 @@
   text-decoration: none;
   padding-top: 20px;
   padding-bottom: 20px;
+  color: black;
+  transition: 0.3s;
   
   &__title {
     font-size: 22px;
@@ -28,5 +30,9 @@
   
   & + .blog {
     border-top: 1px solid rgba(black, 0.2);
+  }
+  
+  &:hover {
+    color: #b80000;
   }
 }

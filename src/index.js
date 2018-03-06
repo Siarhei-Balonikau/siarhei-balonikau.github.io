@@ -1,6 +1,6 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import App from './components/App/App';
+import App from './containers/App/App';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import configureStore from './store.js';
@@ -27,7 +27,7 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./components/App/App', () => {
+  module.hot.accept('./containers/App/App', () => {
     render(App);
   })
 }
