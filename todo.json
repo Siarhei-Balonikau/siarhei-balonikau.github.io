@@ -1,0 +1,21 @@
+[{
+  "id": 1,
+  "name": "New Delhi",
+  "date": "March 19, 2018 11:13:00",
+  "done": false
+}, {
+  "id": 2,
+  "name": "Mumbai",
+  "date": "March 18, 2018 11:13:00",
+  "done": false
+}, {
+  "id": 3,
+  "name": "Moscov",
+  "date": "March 17, 2018 11:13:00",
+  "done": false
+}, {
+  "id": 4,
+  "name": "Minsk",
+  "date": "March 16, 2018 11:13:00",
+  "done": false
+}]

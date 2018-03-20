@@ -1,0 +1,9 @@
+<div ng-controller="toDoAddController">
+<h2>Add a Task</h2>
+<form name="addToDo">
+  <input type="text" placeholder="Description" ng-model="newTaskName" required ng-minlength="20"/>
+  <input type="button" value="Add" ng-click="addTask()" ng-disabled="addToDo.$invalid" />
+</form>
+<br><br>
+<a href="/#!/">return to mainpage</a>
+</div>
