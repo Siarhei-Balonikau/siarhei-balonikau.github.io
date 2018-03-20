@@ -1,0 +1,39 @@
+<div ng-controller="toDoController">
+  <h3>Active ({{ tasks.length }})</h3>
+  <span ng-if="tasks.length === 0">You have no active tasks!</span>
+  
+  <div>
+    <h2>Date period for todos</h2>
+    <select ng-model="filterLastDays" ng-change="setLastDays()">
+      <option value="1">Last day</option>
+      <option value="2">Last 2 days</option>
+      <option value="3">Last 3 days</option>
+    </select>
+  </div>
+  
+  <div>
+    <h2>Filter by first letter</h2>
+    <input type="text" ng-model="filterLetter" ng-change="setLetter()">
+  </div>
+  
+  <div>
+    <h2>Filter by date</h2>
+    <input type="date" ng-model="filterDate" ng-change="setDate()">
+  </div>
+  
+  <h2>Current</h2>
+  <ul ng-repeat="task in tasks | filter:{ done:false } | filterByLastDays: filterLastDays | filterByLetter: filterLetter | filterByDate: filterDate">
+    <li>
+      <input type="checkbox" ng-click="doneTask(task)" /> <a ng-href="/#!/edit/{{task.id}}"> {{ task.name }}</a>
+    </li>
+  </ul>
+  
+  <h2>Done</h2>
+  <ul ng-repeat="task in tasks | filter:{ done:true } | filterByLastDays: filterLastDays | filterByLetter: filterLetter | filterByDate: filterDate">
+    <li>
+      <input type="checkbox" ng-click="removeTask(task)" /> <span ng-click="showForm(task)"> {{ task.name }}</span>
+    </li>
+  </ul>
+  
+  <a href="/#!/add">Add todo</a>
+</div>
