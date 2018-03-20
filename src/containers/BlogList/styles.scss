@@ -1,0 +1,17 @@
+.blog-list {
+  &__link {
+    display: block;
+    border: 1px solid rgba(black, 0.3);
+    transition: 0.3s;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+    text-decoration: none;
+    padding: 15px 0;
+    
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}

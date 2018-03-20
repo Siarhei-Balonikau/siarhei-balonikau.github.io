@@ -1,0 +1,35 @@
+.blog-form {
+  &__field {
+    & + .blog-form {
+      &__field {
+        padding-top: 20px;
+      }
+    }
+  }
+  
+  &__line {
+    margin: 40px 0;
+    border-top: 2px solid rgba(black, 0.1);
+  }
+  
+  &__button {
+    text-align: center;
+    padding-top: 30px;
+  }
+  
+  &__link {
+    display: block;
+    border: 1px solid rgba(black, 0.3);
+    transition: 0.3s;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+    text-decoration: none;
+    padding: 15px 0;
+      
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}

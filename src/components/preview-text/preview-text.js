@@ -1,1 +1,0 @@
-import './preview-text.scss';

@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
 
 const UserSchema = new mongoose.Schema({
   name: String,
@@ -20,16 +18,5 @@ UserSchema.pre('save', function save(next) {
     });
   });
 });
-
-UserSchema.methods.comparePassword = function comparePassword(candidatePassword, callback) {
-  const user = this;
-  bcrypt.compare(candidatePassword, user.pass, function(err, res) {
-    if (res) {
-      return callback(null, user);
-    } else {
-      return callback(null, false);
-    }
-  });
-};
 
 module.exports = mongoose.model('User', UserSchema);

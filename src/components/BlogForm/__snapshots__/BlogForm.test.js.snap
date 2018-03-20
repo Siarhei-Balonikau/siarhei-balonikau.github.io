@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<div
+  className="blog-form"
+>
+  <div>
+    <Link
+      className="blog-form__link"
+      replace={false}
+      to="/"
+    >
+      Show all blogs
+    </Link>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="blog-form__field"
+    >
+      Title
+      <br />
+      <TextField
+        field="title"
+        value="test"
+      />
+    </div>
+    <div
+      className="blog-form__field"
+    >
+      Text
+      <br />
+      <Textarea
+        field="text"
+        value="test"
+      />
+    </div>
+    <div
+      className="blog-form__field"
+    >
+      Author
+      <br />
+      <TextField
+        field="author"
+        value="test"
+      />
+    </div>
+    <div
+      className="blog-form__button"
+    >
+      <Button
+        name="SUBMIT"
+      />
+    </div>
+  </form>
+</div>
+`;

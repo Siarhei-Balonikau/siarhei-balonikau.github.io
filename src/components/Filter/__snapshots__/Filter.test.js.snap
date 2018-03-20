@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<select
+  className="filter"
+  onChange={[Function]}
+>
+  <React.Fragment
+    key="1"
+  >
+    <option
+      name="none"
+    >
+      None
+    </option>
+    <option
+      name="test"
+    >
+      test
+    </option>
+  </React.Fragment>
+  <option
+    key="2"
+    name="test1"
+  >
+    test1
+  </option>
+</select>
+`;

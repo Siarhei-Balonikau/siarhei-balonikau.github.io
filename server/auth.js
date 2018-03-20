@@ -1,19 +1,27 @@
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+//const LocalStrategy = require('passport-local').Strategy;
 const userController = require('./controllers/userController.js');
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 
-passport.use(new LocalStrategy({
-    usernameField: 'name',
-    passwordField: 'pass'
-  },
-  function(username, password, callback) {
-    userController.getUserByName(username, function(err, user) {
-      if (err) { return callback(err); }
-      if (!user) { return callback(null, false); }
-      user.comparePassword(password, callback);
-    });
-  }
-));
+const opts = {
+  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+  secretOrKey: 'secret'
+}
+
+passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+  userController.getUserById(jwt_payload.id, function(err, user) {
+    if (err) {
+      return done(err, false);
+    }
+    
+    if (user) {
+      return done(null, user);
+    } else {
+      return done(null, false);
+    }
+  });
+}));
 
 passport.serializeUser(function(user, callback) {
   callback(null, user.id);

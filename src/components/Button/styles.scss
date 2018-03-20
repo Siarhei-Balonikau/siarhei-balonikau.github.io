@@ -1,0 +1,76 @@
+.button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  padding: 15px 40px;
+  cursor: pointer; 
+  
+  &__inner {
+    &:before {
+      position: absolute; 
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 2px;
+      height: 50%;
+      background-color: black;
+      transition: 0.3s;
+    }
+    
+    &:after {
+      position: absolute; 
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 30%;
+      height: 2px;
+      background-color: black;
+      transition: 0.3s;
+    }
+  }
+  
+  &:before {
+    position: absolute; 
+    content: '';
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 50%;
+    background-color: black;
+    transition: 0.3s;
+  }
+  
+  &:after {
+    position: absolute; 
+    content: '';
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 2px;
+    background-color: black;
+    transition: 0.3s;
+  }
+  
+  &:hover {
+    &:before {
+      height: 100%;
+    }
+    
+    &:after {
+      width: 100%;
+    }
+    
+    .button {
+      &__inner {
+        &:before {
+          height: 100%;
+        }
+        
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`subscribe component should render component 1`] = `
+<form
+  className="auth-form"
+  onSubmit={[Function]}
+>
+  <div
+    className="auth-form__field"
+  >
+    Login
+    <br />
+    <TextField
+      field="login"
+      value="test"
+    />
+  </div>
+  <div
+    className="auth-form__field"
+  >
+    Password
+    <br />
+    <TextField
+      field="pass"
+    />
+  </div>
+  <div
+    className="auth-form__button"
+  >
+    <Button
+      name="SUBMIT"
+    />
+  </div>
+</form>
+`;

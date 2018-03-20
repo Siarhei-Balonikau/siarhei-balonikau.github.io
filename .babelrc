@@ -6,5 +6,5 @@
       }
     }]
   ],
-  "plugins": ["transform-decorators-legacy"]
+  "plugins": ["transform-react-jsx", "react-hot-loader/babel", "transform-object-rest-spread"]
 }
