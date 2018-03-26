@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-		index: ["babel-polyfill", 'react-hot-loader/patch', "./src/index.js"]
+		index: ["babel-polyfill", "./src/app.module.js"]
 	}, 
   
   output: {
