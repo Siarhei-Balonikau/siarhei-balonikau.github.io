@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1522336429833" clover="3.2.0">
+  <project timestamp="1522336429833" name="All files">
+    <metrics statements="65" coveredstatements="57" conditionals="9" coveredconditionals="8" methods="28" coveredmethods="21" elements="102" coveredelements="86" complexity="0" loc="65" ncloc="65" packages="12" files="12" classes="12">
+      <package name="src">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="setupTests.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\setupTests.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="4" count="11" type="stmt"/>
+          <line num="6" count="11" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.actions">
+        <metrics statements="22" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="10"/>
+        <file name="blogs.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\actions\blogs.js">
+          <metrics statements="22" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="10"/>
+          <line num="1" count="2" type="stmt"/>
+          <line num="2" count="3" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="55" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="63" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.AuthForm">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="AuthForm.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\AuthForm\AuthForm.js">
+          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Blog">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Blog.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\Blog\Blog.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.BlogForm">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="BlogForm.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\BlogForm\BlogForm.js">
+          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Button">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="button.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\Button\button.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="16" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Filter">
+        <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+        <file name="filter.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\Filter\filter.js">
+          <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.PageNotFound">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="PageNotFound.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\PageNotFound\PageNotFound.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.SingleBlog">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="SingleBlog.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\SingleBlog\SingleBlog.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.TextField">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="TextField.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\TextField\TextField.js">
+          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Textarea">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="Textarea.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\components\Textarea\Textarea.js">
+          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.reducers">
+        <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <file name="blogs.js" path="D:\homework\frontcamp\Siarhei-Balonikau.github.io\src\reducers\blogs.js">
+          <metrics statements="6" coveredstatements="6" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="9" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
