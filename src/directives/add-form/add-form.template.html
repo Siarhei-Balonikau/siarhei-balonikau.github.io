@@ -1,0 +1,6 @@
+<form name="addArticle">
+  <input type="text" placeholder="title" ng-model="vm.articleName" required ng-minlength="5"/><br>
+  <textarea placeholder="Text" ng-model="vm.articleText" required ng-minlength="5"></textarea><br>
+  <input type="text" placeholder="author" ng-model="vm.articleAuthor" required ng-minlength="5"/><br>
+  <input type="button" value="Add" ng-click="vm.submit()" ng-disabled="addArticle.$invalid" /> 
+</form>

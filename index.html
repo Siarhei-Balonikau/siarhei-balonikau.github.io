@@ -7,14 +7,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
-    <script src="./src/index.js" defer></script>
+    <script src="./src/app.module.js"></script>
+    <script src="./src/app.config.js"></script>
+    
+    <script src="./src/components/articles-list/articles-list.component.js"></script>
+    <script src="./src/components/add-article/add-article.component.js"></script>
+    <script src="./src/components/edit-article/edit-article.component.js"></script>
+    
+    <script src="./src/directives/add-form/add-form.directive.js"></script>
+    
+    <script src="./src/factories/article/article.factory.js"></script>
   </head>
   
   <body>
-    <div id="root" ng-app="toDoApp">
-      <div ng-view>
-
-      </div>
+    <div id="root" ng-app="app">
+      <ng-view></ng-view>
     </div>
   </body>
 </html>
