@@ -1,0 +1,23 @@
+<div class="blog-list">
+  <div>
+    Total amount of articles: {{ $ctrl.articles.length }}
+  </div>
+    
+  <div ng-repeat="article in $ctrl.articles | limitTo:3">
+    <div class="single-blog">
+      <div class="single-blog__title">
+        <a ng-href="/#!/edit/{{article._id}}">{{article.title}}</a>
+      </div>
+        
+      <div class="single-blog__text">
+        {{article.text}}
+      </div>
+        
+      <div class="single-blog__author">
+        {{article.author}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="/#!/add">Add article</a>
