@@ -1,0 +1,9 @@
+<div ng-controller="toDoChangeController">
+  <h2>Change Name</h2>
+  <form name="changeToDo">
+    <input type="text" placeholder="Description" ng-model="changeName" required />
+    <input type="button" value="Change" ng-click="changeTaskName()" ng-disabled="changeToDo.$invalid" />
+  </form>
+  <br><br>
+<a href="/#!/">return to mainpage</a>
+</div>
